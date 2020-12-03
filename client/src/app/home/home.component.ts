@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomeDataService } from '../services/home-data.service';
-
+import { map } from 'rxjs/operators';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,11 +12,11 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.homeDataService.getHomeData().subscribe((data) => {
-      this.val = data;
+      this.val = data.name;
     });
   }
 
   buttonClicked() {
-    this.val = 'shoham';
+    this.val = 'bla';
   }
 }
