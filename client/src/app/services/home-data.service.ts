@@ -2,7 +2,10 @@ import { HttpClient } from '@angular/common/http';
 import { ReturnStatement } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
-import { IUser } from '../models/user';
+
+export interface IUser {
+  name: string;
+}
 
 @Injectable({
   providedIn: 'root',

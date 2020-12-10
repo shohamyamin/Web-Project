@@ -9,6 +9,7 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class HomeComponent implements OnInit {
   val: string;
+  titles: string[];
   constructor(private homeDataService: HomeDataService) {}
 
   ngOnInit(): void {
