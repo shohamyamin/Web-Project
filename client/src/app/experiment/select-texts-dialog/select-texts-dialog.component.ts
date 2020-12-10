@@ -7,8 +7,9 @@ import {
   MatTreeFlattener,
 } from '@angular/material/tree';
 import { BehaviorSubject } from 'rxjs';
-import { Book } from 'src/app/models/Book';
+import { Book, BookFlatNode } from 'src/app/models/Book';
 import { IBook } from 'src/app/models/IBook';
+import { TextsServiceService } from 'src/app/services/texts-service.service';
 
 const TREE_DATA = {
   Bible: {
@@ -23,12 +24,6 @@ const TREE_DATA = {
     Writings: null,
   },
 };
-
-export class BookFlatNode {
-  expandable: boolean;
-  name: string;
-  level: number;
-}
 
 @Injectable()
 export class ChecklistDatabase {
@@ -117,8 +112,12 @@ export class SelectTextsDialogComponent {
 
   /** The selection for checklist */
   checklistSelection = new SelectionModel<BookFlatNode>(true /* multiple */);
+  mode: string;
 
-  constructor(private database: ChecklistDatabase) {
+  constructor(
+    private database: ChecklistDatabase,
+    private textsServiceService: TextsServiceService
+  ) {
     this.treeFlattener = new MatTreeFlattener(
       this.transformer,
       this.getLevel,
@@ -254,5 +253,14 @@ export class SelectTextsDialogComponent {
       }
     }
     return null;
+  }
+  updateBooks() {
+    if (this.mode === 'train') {
+      this.textsServiceService.trainBooks = this.checklistSelection.selected;
+      this.textsServiceService.trainLoaded = true;
+    } else {
+      this.textsServiceService.testBooks = this.checklistSelection.selected;
+      this.textsServiceService.testLoaded = true;
+    }
   }
 }
