@@ -10,7 +10,8 @@ app.use((req, res, next) => {
   next();
 });
 //get example
-app.get("/home", function (req, res) {
+app.get("/getSpecificData", function (req, res) {
+  //TODO get specific data from helth.gov
   res.send(JSON.stringify({ name: "shoham" }));
 });
 

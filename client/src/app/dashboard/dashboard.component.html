@@ -1,2 +1,9 @@
-<p>dashboard works!</p>
-<span>{{ headline }}</span>
+<div class="row" style="padding-left: 1%; padding-top: 1%">
+  <div *ngFor="let specificDetailsData of specificDetailsDataArray">
+    <div class="col">
+      <app-specific-details
+        [specificDetailsData]="specificDetailsData"
+      ></app-specific-details>
+    </div>
+  </div>
+</div>

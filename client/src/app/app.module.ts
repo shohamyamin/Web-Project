@@ -13,22 +13,20 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
-import { ExperimentComponent } from './experiment/experiment.component';
-import { SelectTextsDialogComponent } from './experiment/select-texts-dialog/select-texts-dialog.component';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatInputModule } from '@angular/material/input';
 import { MatChipsModule } from '@angular/material/chips';
-
+import { SpecificDetailsComponent } from './specific-details/specific-details.component';
+import { MatCardModule } from '@angular/material/card';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     DashboardComponent,
-    ExperimentComponent,
-    SelectTextsDialogComponent,
+    SpecificDetailsComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,6 +47,7 @@ import { MatChipsModule } from '@angular/material/chips';
     MatFormFieldModule,
     MatInputModule,
     MatChipsModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

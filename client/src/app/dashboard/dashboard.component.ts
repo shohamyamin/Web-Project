@@ -1,4 +1,6 @@
 import { Component, Injectable, OnInit } from '@angular/core';
+import { ISpecificDetailsData } from '../models/ispecific-details-data';
+import { GetDataService } from '../services/get-data.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,7 +10,12 @@ import { Component, Injectable, OnInit } from '@angular/core';
 export class DashboardComponent implements OnInit {
   @Injectable()
   headline: string;
-  constructor() {}
+  specificDetailsDataArray: ISpecificDetailsData[];
+  constructor(private getDataService: GetDataService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getDataService.getSpecificData().subscribe((specificDataArray) => {
+      this.specificDetailsDataArray = specificDataArray;
+    });
+  }
 }
