@@ -1,6 +1,8 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
+const axios = require("axios").default;
+const requestJson = require("./assets/request.json");
 app.use(bodyParser.urlencoded({ extended: false }));
 
 const port = 5500;
@@ -10,10 +12,20 @@ app.use((req, res, next) => {
   next();
 });
 //get example
-app.get("/getSpecificData", function (req, res) {
-  //TODO get specific data from helth.gov
-  res.send(JSON.stringify({ name: "shoham" }));
+app.get("/getSpecificData", async function (req, res) {
+  console.log("spec", requestJson);
+  return axios
+    .post(
+      "https://datadashboardapi.health.gov.il/api/queries/_batch",
+      requestJson
+    )
+    .then((resfromDashBoard) => {
+      console.log("bl", resfromDashBoard.data);
+      res.json(resfromDashBoard.data);
+    });
 });
+
+//TODO get specific data from helth.gov
 
 //contact us mail sending
 app.post("/send", function (req, res) {

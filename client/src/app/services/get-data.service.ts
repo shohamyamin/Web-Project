@@ -11,9 +11,8 @@ import { of, Subscription } from 'rxjs';
 export class GetDataService {
   constructor(private http: HttpClient) {}
   getSpecificData() {
-    // return this.http.get<ISpecificDetailsData[]>(
-    //   'http://localhost:5500/getSpecificData'
-    // );
+    return this.http.get('http://localhost:5500/getSpecificData');
+
     let array: ISpecificDetailsData[] = [
       {
         title: 'seek',
