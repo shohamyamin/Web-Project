@@ -9,21 +9,19 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 })
 export class PieIsolatedVarifedDoctorsComponent implements OnInit {
   single: any[];
-  view: any[] = [850, 550];
+  view: any[] = [400, 300];
 
   @Input()
   data: any;
-
-  // options
   gradient: boolean = true;
-  showLegend: boolean = true;
+  showLegend: boolean = false;
   showLabels: boolean = true;
   isDoughnut: boolean = false;
+  legendPosition: string = 'below';
 
   colorScheme = {
     domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA'],
   };
-
   constructor() {}
 
   ngOnInit(): void {}

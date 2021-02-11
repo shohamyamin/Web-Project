@@ -21,8 +21,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatChipsModule } from '@angular/material/chips';
 import { SpecificDetailsComponent } from './specific-details/specific-details.component';
 import { MatCardModule } from '@angular/material/card';
-import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { PieIsolatedVarifedDoctorsComponent } from './pie-isolated-varifed-doctors/pie-isolated-varifed-doctors.component';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,10 +51,6 @@ import { PieIsolatedVarifedDoctorsComponent } from './pie-isolated-varifed-docto
     MatInputModule,
     MatChipsModule,
     MatCardModule,
-    NgxChartsModule,
-    BrowserAnimationsModule,
-    BrowserModule,
-    FormsModule,
     NgxChartsModule,
     BrowserAnimationsModule,
   ],
