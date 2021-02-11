@@ -9,7 +9,7 @@ const routes: Routes = [{ path: '', component: DashboardComponent }];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' }),
     BrowserAnimationsModule,
     MatButtonModule,
   ],

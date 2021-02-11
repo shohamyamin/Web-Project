@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { PieIsolatedVarifedDoctorsComponent } from './pie-isolated-varifed-doctors.component';
 
@@ -6,7 +6,7 @@ describe('PieIsolatedVarifedDoctorsComponent', () => {
   let component: PieIsolatedVarifedDoctorsComponent;
   let fixture: ComponentFixture<PieIsolatedVarifedDoctorsComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ PieIsolatedVarifedDoctorsComponent ]
     })
