@@ -21,12 +21,15 @@ import { MatInputModule } from '@angular/material/input';
 import { MatChipsModule } from '@angular/material/chips';
 import { SpecificDetailsComponent } from './specific-details/specific-details.component';
 import { MatCardModule } from '@angular/material/card';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { PieIsolatedVarifedDoctorsComponent } from './pie-isolated-varifed-doctors/pie-isolated-varifed-doctors.component';
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     DashboardComponent,
     SpecificDetailsComponent,
+    PieIsolatedVarifedDoctorsComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,8 +51,14 @@ import { MatCardModule } from '@angular/material/card';
     MatInputModule,
     MatChipsModule,
     MatCardModule,
+    NgxChartsModule,
+    BrowserAnimationsModule,
+    BrowserModule,
+    FormsModule,
+    NgxChartsModule,
+    BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [AppComponent],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -12,6 +12,7 @@ export class DashboardComponent implements OnInit {
   headline: string;
   specificDetailsDataArray: ISpecificDetailsData[] = [];
   lastDate: string;
+  isolatedDoctorsPieData: any;
   constructor(private getDataService: GetDataService) {}
 
   ngOnInit(): void {
@@ -35,6 +36,9 @@ export class DashboardComponent implements OnInit {
         subDetails: `${specificDataArray[3].data[0].name}: ${specificDataArray[3].data[0].amount}
         ${specificDataArray[3].data[1].name}: ${specificDataArray[3].data[1].amount}
         ${specificDataArray[3].data[2].name}: ${specificDataArray[3].data[2].amount}`,
+      });
+      this.isolatedDoctorsPieData = specificDataArray[20].data.map((doctor) => {
+        return { name: doctor.name, value: doctor.amount };
       });
     });
   }
