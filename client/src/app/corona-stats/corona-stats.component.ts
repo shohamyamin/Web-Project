@@ -24,4 +24,7 @@ export class CoronaStatsComponent implements OnInit {
   onSelect(data): void {
     console.log('Item clicked', JSON.parse(JSON.stringify(data)));
   }
+  onResize(event) {
+    this.view2 = [event.target.innerWidth / 1.35, 400];
+  }
 }
