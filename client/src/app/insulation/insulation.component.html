@@ -1,4 +1,4 @@
-<div class="d-flex justify-content-center">
+<div *ngIf="!showEndDate" class="d-flex justify-content-center">
   <mat-card style="background-color: ghostwhite">
     <mat-card-header>
       <mat-card-title>Isolation Form</mat-card-title>
@@ -70,4 +70,8 @@
       </button>
     </mat-card-actions>
   </mat-card>
+</div>
+
+<div *ngIf="showEndDate">
+  <h1>The End of Isolation in: {{ endDate }}</h1>
 </div>

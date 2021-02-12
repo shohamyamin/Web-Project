@@ -12,4 +12,12 @@ export class IsolationService {
   submitIsolationForm(isolationData: IIsolation) {
     return this.http.post(`${this.apiURL}/isolation`, isolationData);
   }
+
+  checkIfExist(username: string) {
+    console.log('usernameservice', username);
+
+    return this.http.post<IIsolation>(`${this.apiURL}/checkIsolation`, {
+      username: username,
+    });
+  }
 }

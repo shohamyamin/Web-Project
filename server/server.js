@@ -6,6 +6,7 @@ const app = express();
 const axios = require("axios").default;
 const requestJson = require("./assets/request.json");
 const { User } = require("./models/User");
+const { Isolation } = require("./models/Isolation");
 const moment = require("moment");
 (async function () {
   const port = 5500;
@@ -44,21 +45,30 @@ const moment = require("moment");
     }
   });
 
-  //Verifies user data in the DB and returns an answer accordingly
-  app.post("/login", async (req, res) => {
+  //get example
+  app.post("/checkIsolation", async function (req, res) {
     try {
-      // const user = db
-      //   .get("users")
-      //   .find({ username: req.body.username })
-      //   .value();
-      console.log("userFront", req.body);
+      console.log("reqcheckIsolation", req.body);
+      const isolation = await Isolation.findOne({
+        username: req.body.username,
+      });
 
+      return res.json(isolation);
+    } catch (error) {
+      console.error(error);
+      return res.sendStatus(500);
+    }
+  });
+
+  //post isolation form;
+  app.post("/isolation", async (req, res) => {
+    try {
       const user = await User.findOne({ username: req.body.username });
-      // console.log("user", user);
 
       if (!user) {
         return res.sendStatus(401);
       }
+      console.log("isolation", req.body);
       const isolation = new Isolation({
         username: req.body.username,
         name: req.body.name,
@@ -68,6 +78,7 @@ const moment = require("moment");
         id: req.body.id,
         endDate: moment(req.body.startDate).add(7, "days").calendar(),
       });
+
       console.log("isolation", isolation);
       await isolation.save();
 
@@ -81,7 +92,7 @@ const moment = require("moment");
   });
 
   //Verifies user data in the DB and returns an answer accordingly
-  app.post("/isolation", async (req, res) => {
+  app.post("/login", async (req, res) => {
     try {
       const user = await User.findOne({ username: req.body.username });
 
