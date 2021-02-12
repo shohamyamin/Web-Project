@@ -34,7 +34,7 @@ const { User } = require("./models/User");
       console.log("user", user);
 
       // const dashboardModel = new DashboardModel(resfromDashBoard.data);
-      console.log(resfromDashBoard.data);
+      // console.log(resfromDashBoard.data);
       return res.json(resfromDashBoard.data);
     } catch (error) {
       console.error(error);

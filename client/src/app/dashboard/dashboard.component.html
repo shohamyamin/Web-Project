@@ -11,3 +11,19 @@
   <app-pie-isolated-varifed-doctors [data]="isolatedDoctorsPieData">
   </app-pie-isolated-varifed-doctors>
 </div>
+<div>
+  <app-vaccinated-graph [graphData]="graphDataVacinated"></app-vaccinated-graph>
+</div>
+<div>
+  <app-dead-graph [graphData]="graphDataDeadPerDay"> </app-dead-graph>
+</div>
+<div>
+  <app-positive-precentage-tests-graph
+    [graphData]="graphPrecentOfPositiveTests"
+  ></app-positive-precentage-tests-graph>
+</div>
+<div>
+  <app-precentage-vaccinatede-age-graph
+    [graphData]="vaccinatedPerAgeGraphData"
+  ></app-precentage-vaccinatede-age-graph>
+</div>

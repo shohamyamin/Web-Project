@@ -23,6 +23,10 @@ import { SpecificDetailsComponent } from './specific-details/specific-details.co
 import { MatCardModule } from '@angular/material/card';
 import { PieIsolatedVarifedDoctorsComponent } from './pie-isolated-varifed-doctors/pie-isolated-varifed-doctors.component';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { VaccinatedGraphComponent } from './vaccinated-graph/vaccinated-graph.component';
+import { DeadGraphComponent } from './dead-graph/dead-graph.component';
+import { PositivePrecentageTestsGraphComponent } from './positive-precentage-tests-graph/positive-precentage-tests-graph.component';
+import { PrecentageVaccinatedeAgeGraphComponent } from './precentage-vaccinatede-age-graph/precentage-vaccinatede-age-graph.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,6 +34,10 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
     DashboardComponent,
     SpecificDetailsComponent,
     PieIsolatedVarifedDoctorsComponent,
+    VaccinatedGraphComponent,
+    DeadGraphComponent,
+    PositivePrecentageTestsGraphComponent,
+    PrecentageVaccinatedeAgeGraphComponent,
   ],
   imports: [
     BrowserModule,
