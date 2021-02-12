@@ -1,13 +1,13 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-dead-graph',
-  templateUrl: './dead-graph.component.html',
-  styleUrls: ['./dead-graph.component.css'],
+  selector: 'app-hard-count-graph',
+  templateUrl: './hard-count-graph.component.html',
+  styleUrls: ['./hard-count-graph.component.css'],
 })
-export class DeadGraphComponent implements OnInit {
+export class HardCountGraphComponent implements OnInit {
   @Input()
-  graphData: any;
+  graphData;
   view: any[] = [700, 300];
 
   // options
@@ -19,7 +19,7 @@ export class DeadGraphComponent implements OnInit {
   showYAxisLabel: boolean = true;
   showXAxisLabel: boolean = true;
   xAxisLabel: string = 'Date';
-  yAxisLabel: string = 'Number of Dead Dialy';
+  yAxisLabel: string = 'Number Of Hard Patiants';
   timeline: boolean = true;
 
   colorScheme = {
@@ -28,7 +28,6 @@ export class DeadGraphComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {}
-
   onSelect(data): void {
     console.log('Item clicked', JSON.parse(JSON.stringify(data)));
   }

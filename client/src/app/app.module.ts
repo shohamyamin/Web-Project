@@ -27,6 +27,7 @@ import { VaccinatedGraphComponent } from './vaccinated-graph/vaccinated-graph.co
 import { DeadGraphComponent } from './dead-graph/dead-graph.component';
 import { PositivePrecentageTestsGraphComponent } from './positive-precentage-tests-graph/positive-precentage-tests-graph.component';
 import { PrecentageVaccinatedeAgeGraphComponent } from './precentage-vaccinatede-age-graph/precentage-vaccinatede-age-graph.component';
+import { HardCountGraphComponent } from './hard-count-graph/hard-count-graph.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +39,7 @@ import { PrecentageVaccinatedeAgeGraphComponent } from './precentage-vaccinatede
     DeadGraphComponent,
     PositivePrecentageTestsGraphComponent,
     PrecentageVaccinatedeAgeGraphComponent,
+    HardCountGraphComponent,
   ],
   imports: [
     BrowserModule,

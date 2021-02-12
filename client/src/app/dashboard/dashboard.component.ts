@@ -19,6 +19,7 @@ export class DashboardComponent implements OnInit {
   graphDataDeadPerDay: any;
   graphPrecentOfPositiveTests: { name: string; series: any[] }[];
   vaccinatedPerAgeGraphData: any = [];
+  hardCountDataGraph: any;
   constructor(private getDataService: GetDataService) {}
 
   ngOnInit(): void {
@@ -135,7 +136,21 @@ export class DashboardComponent implements OnInit {
         tempVaccinatedPerAgeGraphData.push(dataPercentegePositive);
       });
       this.vaccinatedPerAgeGraphData = tempVaccinatedPerAgeGraphData;
-      console.log('blab', tempVaccinatedPerAgeGraphData);
+
+      let hardCountData = specificDataArray[11].data;
+
+      let numberOfHardPatiants = {
+        name: 'Number Of Hard Patiants',
+        series: [],
+      };
+      hardCountData.forEach((dateHardData) => {
+        let date = new Date(dateHardData.date);
+        numberOfHardPatiants.series.push({
+          value: dateHardData.CountHardStatus,
+          name: `${date.getDate()}/${date.getMonth() + 1}`,
+        });
+      });
+      this.hardCountDataGraph = [numberOfHardPatiants];
     });
   }
 }
