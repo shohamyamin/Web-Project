@@ -9,8 +9,8 @@ export class PrecentageVaccinatedeAgeGraphComponent implements OnInit {
   @Input()
   graphData: any[];
 
-  view: any[] = [700, 400];
-
+  @Input()
+  view: any[];
   // options
   showXAxis: boolean = true;
   showYAxis: boolean = true;
@@ -39,5 +39,8 @@ export class PrecentageVaccinatedeAgeGraphComponent implements OnInit {
 
   onDeactivate(data): void {
     console.log('Deactivate', JSON.parse(JSON.stringify(data)));
+  }
+  onResize(event) {
+    this.view = [event.target.innerWidth / 1.35, 400];
   }
 }

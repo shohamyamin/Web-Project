@@ -9,7 +9,8 @@ export class PositivePrecentageTestsGraphComponent implements OnInit {
   @Input()
   graphData: any[];
   // options
-  view: any[] = [700, 300];
+  @Input()
+  view: any[];
   legend: boolean = false;
   showLabels: boolean = true;
   animations: boolean = true;
@@ -38,5 +39,8 @@ export class PositivePrecentageTestsGraphComponent implements OnInit {
 
   onDeactivate(data): void {
     console.log('Deactivate', JSON.parse(JSON.stringify(data)));
+  }
+  onResize(event) {
+    this.view = [event.target.innerWidth / 1.35, 400];
   }
 }

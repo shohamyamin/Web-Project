@@ -4,8 +4,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CoronaExposureMapComponent } from './corona-exposure-map/corona-exposure-map.component';
 
-const routes: Routes = [{ path: '', component: DashboardComponent }];
+const routes: Routes = [
+  { path: '', component: DashboardComponent },
+  { path: 'exposureMap', component: CoronaExposureMapComponent },
+];
 
 @NgModule({
   imports: [

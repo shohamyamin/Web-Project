@@ -8,8 +8,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class HardCountGraphComponent implements OnInit {
   @Input()
   graphData;
-  view: any[] = [700, 300];
-
+  @Input()
+  view: any[];
   // options
   legend: boolean = false;
   showLabels: boolean = true;
@@ -38,5 +38,8 @@ export class HardCountGraphComponent implements OnInit {
 
   onDeactivate(data): void {
     console.log('Deactivate', JSON.parse(JSON.stringify(data)));
+  }
+  onResize(event) {
+    this.view = [event.target.innerWidth / 1.35, 400];
   }
 }

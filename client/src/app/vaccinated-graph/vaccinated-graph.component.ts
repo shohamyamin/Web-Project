@@ -6,8 +6,8 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./vaccinated-graph.component.css'],
 })
 export class VaccinatedGraphComponent implements OnInit {
-  view: any[] = [700, 300];
-
+  @Input()
+  view: any[];
   @Input()
   graphData: any[];
   // options
@@ -39,5 +39,8 @@ export class VaccinatedGraphComponent implements OnInit {
 
   onDeactivate(data): void {
     console.log('Deactivate', JSON.parse(JSON.stringify(data)));
+  }
+  onResize(event) {
+    this.view = [event.target.innerWidth / 1.35, 400];
   }
 }

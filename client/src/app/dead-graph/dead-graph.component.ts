@@ -8,7 +8,8 @@ import { Component, Input, OnInit } from '@angular/core';
 export class DeadGraphComponent implements OnInit {
   @Input()
   graphData: any;
-  view: any[] = [700, 300];
+  @Input()
+  view: any[];
 
   // options
   legend: boolean = false;
@@ -39,5 +40,8 @@ export class DeadGraphComponent implements OnInit {
 
   onDeactivate(data): void {
     console.log('Deactivate', JSON.parse(JSON.stringify(data)));
+  }
+  onResize(event) {
+    this.view = [event.target.innerWidth / 1.35, 400];
   }
 }

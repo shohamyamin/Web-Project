@@ -9,7 +9,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 })
 export class PieIsolatedVarifedDoctorsComponent implements OnInit {
   single: any[];
-  view: any[] = [400, 300];
+  @Input()
+  view: any[];
 
   @Input()
   data: any;
@@ -36,5 +37,8 @@ export class PieIsolatedVarifedDoctorsComponent implements OnInit {
 
   onDeactivate(data): void {
     console.log('Deactivate', JSON.parse(JSON.stringify(data)));
+  }
+  onResize(event) {
+    this.view = [event.target.innerWidth / 1.35, 400];
   }
 }

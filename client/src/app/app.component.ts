@@ -10,4 +10,5 @@ export class AppComponent {
   title = 'client';
   components = [1, 2, 3];
   navToNewsPage() {}
+  navToDashboard() {}
 }
