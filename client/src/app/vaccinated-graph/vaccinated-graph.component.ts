@@ -11,7 +11,7 @@ export class VaccinatedGraphComponent implements OnInit {
   @Input()
   graphData: any[];
   // options
-  legend: boolean = true;
+  legend: boolean = false;
   showLabels: boolean = true;
   animations: boolean = true;
   xAxis: boolean = true;

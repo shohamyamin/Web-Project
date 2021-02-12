@@ -1,4 +1,4 @@
-<div class="row" style="padding-left: 1%; padding-top: 1%">
+<!-- <div class="row" style="padding-left: 1%; padding-top: 1%">
   <div *ngFor="let specificDetailsData of specificDetailsDataArray">
     <div class="col">
       <app-specific-details
@@ -6,52 +6,93 @@
       ></app-specific-details>
     </div>
   </div>
-</div>
+</div> -->
+<br />
 <div class="d-flex justify-content-center">
-  <div class="row">
-    <div class="col">
-      <app-positive-precentage-tests-graph
-        [view]="view"
-        [graphData]="graphPrecentOfPositiveTests"
-      ></app-positive-precentage-tests-graph>
-    </div>
-    <div class="col">
-      <app-dead-graph [view]="view" [graphData]="graphDataDeadPerDay">
-      </app-dead-graph>
-    </div>
+  <mat-card style="background-color: ghostwhite">
+    <mat-card-header>
+      <mat-card-title>Corona Stats</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <app-corona-stats
+            [view]="view"
+            [graphData]="statusCoronaGraph"
+          ></app-corona-stats>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+<br />
+<div>
+  <div class="d-flex justify-content-center">
+    <mat-card style="background-color: ghostwhite">
+      <mat-card-header>
+        <mat-card-title>Positive Tests & Death Stats</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <div class="col">
+            <app-positive-precentage-tests-graph
+              [view]="view"
+              [graphData]="graphPrecentOfPositiveTests"
+            ></app-positive-precentage-tests-graph>
+          </div>
+          <div class="col">
+            <app-dead-graph [view]="view" [graphData]="graphDataDeadPerDay">
+            </app-dead-graph>
+          </div>
+        </div>
+      </mat-card-content>
+    </mat-card>
   </div>
-</div>
-<div class="d-flex justify-content-center">
-  <div class="row">
-    <div class="col">
-      <app-vaccinated-graph
-        [view]="view"
-        [graphData]="graphDataVacinated"
-      ></app-vaccinated-graph>
-    </div>
-    <div class="col">
-      <app-precentage-vaccinatede-age-graph
-        [view]="view"
-        [graphData]="vaccinatedPerAgeGraphData"
-      ></app-precentage-vaccinatede-age-graph>
-    </div>
+  <br />
+  <div class="d-flex justify-content-center">
+    <mat-card style="background-color: ghostwhite">
+      <mat-card-header>
+        <mat-card-title>Vaccines</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <div class="col">
+            <app-vaccinated-graph
+              [view]="view"
+              [graphData]="graphDataVacinated"
+            ></app-vaccinated-graph>
+          </div>
+          <div class="col">
+            <app-precentage-vaccinatede-age-graph
+              [view]="view"
+              [graphData]="vaccinatedPerAgeGraphData"
+            ></app-precentage-vaccinatede-age-graph>
+          </div></div
+      ></mat-card-content>
+    </mat-card>
   </div>
-</div>
-
-<div class="d-flex justify-content-center">
-  <div class="row">
-    <div class="col">
-      <app-hard-count-graph
-        [view]="view"
-        [graphData]="hardCountDataGraph"
-      ></app-hard-count-graph>
-    </div>
-    <div class="col">
-      <app-pie-isolated-varifed-doctors
-        [view]="view"
-        [data]="isolatedDoctorsPieData"
-      >
-      </app-pie-isolated-varifed-doctors>
-    </div>
+  <br />
+  <div class="d-flex justify-content-center">
+    <mat-card style="background-color: ghostwhite">
+      <mat-card-header>
+        <mat-card-title>Hard patients & Medical staff condition</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="row">
+          <div class="col">
+            <app-hard-count-graph
+              [view]="view"
+              [graphData]="hardCountDataGraph"
+            ></app-hard-count-graph>
+          </div>
+          <div class="col">
+            <app-pie-isolated-varifed-doctors
+              [view]="view"
+              [data]="isolatedDoctorsPieData"
+            >
+            </app-pie-isolated-varifed-doctors>
+          </div></div
+      ></mat-card-content>
+    </mat-card>
   </div>
 </div>

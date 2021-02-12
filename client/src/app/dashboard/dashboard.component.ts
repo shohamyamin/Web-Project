@@ -21,6 +21,7 @@ export class DashboardComponent implements OnInit {
   vaccinatedPerAgeGraphData: any = [];
   hardCountDataGraph: any;
   view: any[] = [650, 350];
+  statusCoronaGraph: any[] = [];
   constructor(private getDataService: GetDataService) {}
 
   ngOnInit(): void {
@@ -29,38 +30,13 @@ export class DashboardComponent implements OnInit {
 
       this.lastDate = specificDataArray[0].data.lastUpdate;
 
-      this.specificDetailsDataArray.push({
-        title: 'Hard Patiant',
-        details: specificDataArray[1].data[0].amount,
-
-        newDetails: '',
-        subDetails: `Critical ${specificDataArray[1].data[2].amount}\n Breath ${specificDataArray[1].data[2].amount}`,
-      });
-      this.specificDetailsDataArray.push({
-        title: 'Active Patients',
-        details:
-          specificDataArray[2].data[0].amount +
-          specificDataArray[2].data[1].amount,
-
-        newDetails: `From Midnight: ${specificDataArray[2].data[1].amount.toString()}`,
-        subDetails: `${specificDataArray[3].data[0].name}: ${specificDataArray[3].data[0].amount}
-        ${specificDataArray[3].data[1].name}: ${specificDataArray[3].data[1].amount}
-        ${specificDataArray[3].data[2].name}: ${specificDataArray[3].data[2].amount}`,
+      //pie graph
+      this.isolatedDoctorsPieData = specificDataArray[20].data.map((doctor) => {
+        return { name: doctor.name, value: doctor.amount };
       });
       //vaccinated data
       let vacinated = specificDataArray[4].data;
       let lastVacinated = vacinated[vacinated.length - 1];
-      this.specificDetailsDataArray.push({
-        title: 'second dose',
-        details: lastVacinated.vaccinated_seconde_dose_cum,
-
-        newDetails: `${lastVacinated.vaccinated_seconde_dose_population_perc}% Vaccinated in second dose`,
-        subDetails: `${lastVacinated.vaccinated_population_perc}% Vaccinated in the first dose`,
-      });
-      this.isolatedDoctorsPieData = specificDataArray[20].data.map((doctor) => {
-        return { name: doctor.name, value: doctor.amount };
-      });
-
       let totalVaccinated = { name: 'Total Vaccinated', series: [] };
       let dailyVaccinated = { name: 'Daily Vaccinated', series: [] };
       let vaccinatedInSecondeDose = {
@@ -152,6 +128,42 @@ export class DashboardComponent implements OnInit {
         });
       });
       this.hardCountDataGraph = [numberOfHardPatiants];
+
+      //status Cards
+      let statusCoronaData = [];
+      statusCoronaData.push({
+        name: 'Hard Patiants',
+        value: specificDataArray[1].data[0].amount,
+        extra: {
+          code: 'HP',
+        },
+      });
+      statusCoronaData.push({
+        name: 'Active Patients',
+        value:
+          specificDataArray[2].data[0].amount +
+          specificDataArray[2].data[1].amount,
+        extra: {
+          code: 'AP',
+        },
+      });
+
+      statusCoronaData.push({
+        name: 'Vaccine Second Dose',
+        value: lastVacinated.vaccinated_seconde_dose_cum,
+        extra: {
+          code: 'VSD',
+        },
+      });
+      statusCoronaData.push({
+        name: 'Death Patiants',
+        value: dataDeadPerDay[dataDeadPerDay.length - 1].total,
+        extra: {
+          code: 'DP',
+        },
+      });
+      this.statusCoronaGraph = statusCoronaData;
+      console.log('bkava', this.statusCoronaGraph);
     });
   }
 }

@@ -8,6 +8,7 @@ import { CoronaExposureMapComponent } from './corona-exposure-map/corona-exposur
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
+  { path: 'dashboard', component: DashboardComponent },
   { path: 'exposureMap', component: CoronaExposureMapComponent },
 ];
 

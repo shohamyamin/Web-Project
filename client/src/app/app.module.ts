@@ -29,6 +29,7 @@ import { PositivePrecentageTestsGraphComponent } from './positive-precentage-tes
 import { PrecentageVaccinatedeAgeGraphComponent } from './precentage-vaccinatede-age-graph/precentage-vaccinatede-age-graph.component';
 import { HardCountGraphComponent } from './hard-count-graph/hard-count-graph.component';
 import { CoronaExposureMapComponent } from './corona-exposure-map/corona-exposure-map.component';
+import { CoronaStatsComponent } from './corona-stats/corona-stats.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,6 +43,7 @@ import { CoronaExposureMapComponent } from './corona-exposure-map/corona-exposur
     PrecentageVaccinatedeAgeGraphComponent,
     HardCountGraphComponent,
     CoronaExposureMapComponent,
+    CoronaStatsComponent,
   ],
   imports: [
     BrowserModule,
