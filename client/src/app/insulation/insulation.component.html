@@ -1,0 +1,73 @@
+<div class="d-flex justify-content-center">
+  <mat-card style="background-color: ghostwhite">
+    <mat-card-header>
+      <mat-card-title>Isolation Form</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="col-md-6">
+        <div class="row">
+          <mat-form-field>
+            <mat-label>Full Name:</mat-label>
+            <input matInput required [(ngModel)]="isolationData.name"
+          /></mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field>
+            <mat-label>ID:</mat-label>
+            <input matInput required [(ngModel)]="isolationData.id" />
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field>
+            <mat-label>Phone Number:</mat-label>
+            <input
+              type="tel"
+              matInput
+              required
+              [(ngModel)]="isolationData.phoneNumber"
+            />
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field>
+            <mat-label>Email:</mat-label>
+            <input
+              type="email"
+              matInput
+              required
+              [(ngModel)]="isolationData.email"
+            />
+          </mat-form-field>
+        </div>
+        <div class="row">
+          <mat-form-field>
+            <mat-label>Start Date of Isolation:</mat-label>
+            <input
+              type="date"
+              matInput
+              required
+              [(ngModel)]="isolationData.startDate"
+            />
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button
+        (click)="onSubmit()"
+        [disabled]="
+          !(
+            isolationData.email &&
+            isolationData.id &&
+            isolationData.name &&
+            isolationData.phoneNumber &&
+            isolationData.startDate
+          )
+        "
+        mat-button
+      >
+        Submit
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

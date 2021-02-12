@@ -4,6 +4,25 @@
       <mat-icon>menu</mat-icon>
     </button>
     <h1 class="example-app-name">Israel Corona Dashboard</h1>
+    <div style="margin-left: 75%">
+      <div *ngIf="authService.isAuthenticated">
+        <span>Hello, {{ authService.username }}</span>
+      </div>
+      <div *ngIf="!authService.isAuthenticated">
+        <button mat-button routerLink="isolation">
+          <mat-icon>login</mat-icon>&nbsp; login
+        </button>
+      </div>
+      <div *ngIf="authService.isAuthenticated">
+        <button
+          mat-button
+          (click)="authService.logout()"
+          routerLink="dashboard"
+        >
+          <mat-icon>logout</mat-icon>&nbsp; logout
+        </button>
+      </div>
+    </div>
   </mat-toolbar>
 
   <mat-sidenav-container class="example-sidenav-container">
@@ -21,6 +40,11 @@
       <mat-nav-list>
         <a mat-list-item (click)="openGoogleNews()"
           ><mat-icon>open_in_new</mat-icon> &nbsp; Covide 19 Google news</a
+        >
+      </mat-nav-list>
+      <mat-nav-list>
+        <a mat-list-item routerLink="isolation"
+          ><mat-icon>home</mat-icon>&nbsp; Declare Isolation</a
         >
       </mat-nav-list>
     </mat-sidenav>

@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -30,10 +29,11 @@ import { PrecentageVaccinatedeAgeGraphComponent } from './precentage-vaccinatede
 import { HardCountGraphComponent } from './hard-count-graph/hard-count-graph.component';
 import { CoronaExposureMapComponent } from './corona-exposure-map/corona-exposure-map.component';
 import { CoronaStatsComponent } from './corona-stats/corona-stats.component';
+import { LoginComponent } from './login/login.component';
+import { InsulationComponent } from './insulation/insulation.component';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     DashboardComponent,
     SpecificDetailsComponent,
     PieIsolatedVarifedDoctorsComponent,
@@ -44,6 +44,8 @@ import { CoronaStatsComponent } from './corona-stats/corona-stats.component';
     HardCountGraphComponent,
     CoronaExposureMapComponent,
     CoronaStatsComponent,
+    LoginComponent,
+    InsulationComponent,
   ],
   imports: [
     BrowserModule,
@@ -61,7 +63,6 @@ import { CoronaStatsComponent } from './corona-stats/corona-stats.component';
     MatCheckboxModule,
     MatStepperModule,
     ReactiveFormsModule,
-    MatFormFieldModule,
     MatInputModule,
     MatChipsModule,
     MatCardModule,

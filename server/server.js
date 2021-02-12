@@ -1,11 +1,12 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
+const cors = require("cors");
 const app = express();
 const axios = require("axios").default;
 const requestJson = require("./assets/request.json");
 const { User } = require("./models/User");
-
+const moment = require("moment");
 (async function () {
   const port = 5500;
   const usersSignup = [];
@@ -15,7 +16,8 @@ const { User } = require("./models/User");
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
-  app.use(bodyParser.urlencoded({ extended: false }));
+  app.use(cors());
+  app.use(bodyParser.json());
   app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     next();
@@ -39,6 +41,62 @@ const { User } = require("./models/User");
     } catch (error) {
       console.error(error);
       return res.sendStatus(500);
+    }
+  });
+
+  //Verifies user data in the DB and returns an answer accordingly
+  app.post("/login", async (req, res) => {
+    try {
+      // const user = db
+      //   .get("users")
+      //   .find({ username: req.body.username })
+      //   .value();
+      console.log("userFront", req.body);
+
+      const user = await User.findOne({ username: req.body.username });
+      // console.log("user", user);
+
+      if (!user) {
+        return res.sendStatus(401);
+      }
+      const isolation = new Isolation({
+        username: req.body.username,
+        name: req.body.name,
+        phoneNumber: req.body.phoneNumber,
+        startDate: req.body.startDate,
+        email: req.body.email,
+        id: req.body.id,
+        endDate: moment(req.body.startDate).add(7, "days").calendar(),
+      });
+      console.log("isolation", isolation);
+      await isolation.save();
+
+      //const valid = await bcrypt.compare(req.body.password, user.password);
+
+      res.json({});
+    } catch (err) {
+      console.log("error" + err);
+      res.sendStatus(500);
+    }
+  });
+
+  //Verifies user data in the DB and returns an answer accordingly
+  app.post("/isolation", async (req, res) => {
+    try {
+      const user = await User.findOne({ username: req.body.username });
+
+      if (!user) {
+        return res.sendStatus(401);
+      }
+      //const valid = await bcrypt.compare(req.body.password, user.password);
+      const valid = user.password == req.body.password;
+      if (!valid) {
+        return res.sendStatus(401);
+      }
+      res.json({});
+    } catch (err) {
+      console.log("error" + err);
+      res.sendStatus(500);
     }
   });
 

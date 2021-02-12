@@ -5,11 +5,20 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CoronaExposureMapComponent } from './corona-exposure-map/corona-exposure-map.component';
+import { AuthGuard } from './auth.guard';
+import { InsulationComponent } from './insulation/insulation.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'exposureMap', component: CoronaExposureMapComponent },
+  { path: 'login', component: LoginComponent },
+  {
+    path: 'isolation',
+    canActivate: [AuthGuard],
+    component: InsulationComponent,
+  },
 ];
 
 @NgModule({
