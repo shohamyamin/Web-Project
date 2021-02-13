@@ -8,11 +8,11 @@ const requestJson = require("./assets/request.json");
 const { User } = require("./models/user");
 const { Isolation } = require("./models/isolation");
 const moment = require("moment");
+const config = require("./config");
 (async function () {
   const port = process.env.PORT || 5500;
   const usersSignup = [];
-  const dbUri =
-    "mongodb+srv://admin:tgdKFltZAEnOo4fP@cluster0.wyskd.mongodb.net/coronaDB?retryWrites=true&w=majority";
+  const dbUri = `mongodb+srv://${config.databaseUser}:${config.databasePassword}@cluster0.wyskd.mongodb.net/coronaDB?retryWrites=true&w=majority`;
   await mongoose.connect(dbUri, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -112,47 +112,6 @@ const moment = require("moment");
   });
 
   //TODO get specific data from helth.gov
-
-  //contact us mail sending
-  app.post("/send", function (req, res) {
-    let name = req.body.name4;
-    let email = req.body.mail4;
-    let subject1 = req.body.options1;
-    let msg = req.body.subj;
-
-    var transporter = nodemailer.createTransport({
-      service: "gmail",
-      auth: {
-        user: "rwzntm@gmail.com",
-        pass: "ExampleNode2011@",
-      },
-    });
-
-    var mailOptions = {
-      from: email,
-      to: "rwzntm@gmail.com",
-      subject: subject1,
-      text:
-        "name:\n" +
-        name +
-        "\nemail:\n" +
-        email +
-        "\nsubject\n" +
-        subject1 +
-        "\nmessage:\n" +
-        msg,
-    };
-
-    transporter.sendMail(mailOptions, function (error, info) {
-      if (error) {
-        console.log(error);
-      } else {
-        res.send("data submited!");
-        //  res.redirect("/send");
-        console.log("Email sent: " + info.response);
-      }
-    });
-  });
 
   //listening to port 5500
   app.listen(port);

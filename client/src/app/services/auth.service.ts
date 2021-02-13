@@ -2,13 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { tap } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  apiURL = 'http://localhost:5500';
+  apiURL = environment.apiUrl;
   isAuthenticated = false;
   username: string;
   constructor(private http: HttpClient) {}

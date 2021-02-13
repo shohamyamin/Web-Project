@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ISpecificDetailsData } from '../models/ispecific-details-data';
 import { of, Subscription } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +12,7 @@ import { of, Subscription } from 'rxjs';
 export class GetDataService {
   constructor(private http: HttpClient) {}
   getSpecificData() {
-    return this.http.get('http://localhost:5500/getSpecificData');
+    return this.http.get(`${environment}/getSpecificData`);
 
     let array: ISpecificDetailsData[] = [
       {
