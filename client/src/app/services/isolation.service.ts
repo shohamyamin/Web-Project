@@ -7,7 +7,7 @@ import { IIsolation } from '../models/isolation';
   providedIn: 'root',
 })
 export class IsolationService {
-  apiURL = environment;
+  apiURL = environment.apiUrl;
   constructor(private http: HttpClient) {}
 
   submitIsolationForm(isolationData: IIsolation) {
