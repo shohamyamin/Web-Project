@@ -26,6 +26,8 @@ export class CoronaStatsComponent implements OnInit {
     console.log('Item clicked', JSON.parse(JSON.stringify(data)));
   }
   onResize(event) {
-    this.view2 = [event.target.innerWidth / 1.35, this.view[1]];
+    if (event.target.innerWidth / 1.35 < 600) {
+      this.view2 = [event.target.innerWidth / 1.35, this.view[1]];
+    }
   }
 }

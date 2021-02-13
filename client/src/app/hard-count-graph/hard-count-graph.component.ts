@@ -42,6 +42,8 @@ export class HardCountGraphComponent implements OnInit {
     console.log('Deactivate', JSON.parse(JSON.stringify(data)));
   }
   onResize(event) {
-    this.view = [event.target.innerWidth / 1.35, 400];
+    if (event.target.innerWidth / 1.35 < 600) {
+      this.view = [event.target.innerWidth / 1.35, 400];
+    }
   }
 }
