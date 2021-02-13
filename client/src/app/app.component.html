@@ -32,11 +32,7 @@
           ><mat-icon> map</mat-icon> &nbsp; Exposure Map
         </a>
       </mat-nav-list>
-      <mat-nav-list>
-        <a mat-list-item (click)="openGoogleNews()"
-          ><mat-icon>open_in_new</mat-icon> &nbsp; Covide 19 Google news</a
-        >
-      </mat-nav-list>
+
       <mat-nav-list>
         <a mat-list-item routerLink="isolation"
           ><mat-icon>home</mat-icon>&nbsp; Declare Isolation</a
@@ -44,7 +40,12 @@
       </mat-nav-list>
       <mat-nav-list>
         <a mat-list-item routerLink="coronaInformation"
-          ><mat-icon>home</mat-icon>&nbsp; Corona Information</a
+          ><mat-icon>information</mat-icon>&nbsp; Corona Information</a
+        >
+      </mat-nav-list>
+      <mat-nav-list>
+        <a mat-list-item (click)="openGoogleNews()"
+          ><mat-icon>open_in_new</mat-icon> &nbsp; Covide 19 Google news</a
         >
       </mat-nav-list>
     </mat-sidenav>

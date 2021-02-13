@@ -1,5 +1,6 @@
 import { stringify } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IIsolation } from '../models/isolation';
 import { AuthService } from '../services/auth.service';
 import { IsolationService } from '../services/isolation.service';
@@ -13,7 +14,8 @@ export class InsulationComponent implements OnInit {
   endDate: string = '';
   constructor(
     private isolationService: IsolationService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
   isolationData: IIsolation;
   disable: boolean;
@@ -59,6 +61,7 @@ export class InsulationComponent implements OnInit {
     this.isolationService
       .submitIsolationForm(this.isolationData)
       .subscribe((res) => {
+        this.router.navigateByUrl('dashboard');
         console.log('resIsolation', res);
       });
   }

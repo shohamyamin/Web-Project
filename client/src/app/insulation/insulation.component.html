@@ -75,6 +75,17 @@
   </mat-card>
 </div>
 
-<div *ngIf="showEndDate">
-  <h1>The End of Isolation in: {{ endDate }}</h1>
+<div
+  *ngIf="showEndDate"
+  class="d-flex justify-content-center align-items-center full-size"
+>
+  <mat-card style="background-color: ghostwhite">
+    <mat-card-header>
+      <mat-card-title>End Isolation Date </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <h3>The End of Isolation is in: {{ endDate.slice(0, 10) }}</h3>
+      <h4>* Until this date you need to stay at home</h4>
+    </mat-card-content>
+  </mat-card>
 </div>
