@@ -33,8 +33,8 @@ cd server && npm install && cd ..
 
 ```
 Create .env file in server directory
-- see .env.example
-fill in the DB User Name and Password: Connect me for them: shoham39@gmail.com
+- see .env.example for example
+-fill in the .env file the DB User Name and Password: Connect me for them: shoham39@gmail.com
 
 ## Deployment
 
