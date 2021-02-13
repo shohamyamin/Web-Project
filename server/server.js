@@ -5,8 +5,8 @@ const cors = require("cors");
 const app = express();
 const axios = require("axios").default;
 const requestJson = require("./assets/request.json");
-const { User } = require("./models/User");
-const { Isolation } = require("./models/Isolation");
+const { User } = require("./models/user");
+const { Isolation } = require("./models/isolation");
 const moment = require("moment");
 (async function () {
   const port = 5500;
