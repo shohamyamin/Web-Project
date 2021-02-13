@@ -9,7 +9,7 @@ const { User } = require("./models/user");
 const { Isolation } = require("./models/isolation");
 const moment = require("moment");
 (async function () {
-  const port = 5500;
+  const port = process.env.PORT || 5500;
   const usersSignup = [];
   const dbUri =
     "mongodb+srv://admin:tgdKFltZAEnOo4fP@cluster0.wyskd.mongodb.net/coronaDB?retryWrites=true&w=majority";
