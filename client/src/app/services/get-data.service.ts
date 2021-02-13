@@ -12,7 +12,7 @@ import { environment } from '../../environments/environment';
 export class GetDataService {
   constructor(private http: HttpClient) {}
   getSpecificData() {
-    return this.http.get(`${environment}/getSpecificData`);
+    return this.http.get(`${environment.apiUrl}/getSpecificData`);
 
     let array: ISpecificDetailsData[] = [
       {
