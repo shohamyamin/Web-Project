@@ -8,12 +8,14 @@ import { CoronaExposureMapComponent } from './corona-exposure-map/corona-exposur
 import { AuthGuard } from './auth.guard';
 import { InsulationComponent } from './insulation/insulation.component';
 import { LoginComponent } from './login/login.component';
+import { RegistrationComponent } from './registration/registration.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'exposureMap', component: CoronaExposureMapComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'registration', component: RegistrationComponent },
   {
     path: 'isolation',
     canActivate: [AuthGuard],

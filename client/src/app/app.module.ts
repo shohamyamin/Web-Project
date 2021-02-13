@@ -31,6 +31,8 @@ import { CoronaExposureMapComponent } from './corona-exposure-map/corona-exposur
 import { CoronaStatsComponent } from './corona-stats/corona-stats.component';
 import { LoginComponent } from './login/login.component';
 import { InsulationComponent } from './insulation/insulation.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { CoronaInformationComponent } from './corona-information/corona-information.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -46,6 +48,8 @@ import { InsulationComponent } from './insulation/insulation.component';
     CoronaStatsComponent,
     LoginComponent,
     InsulationComponent,
+    RegistrationComponent,
+    CoronaInformationComponent,
   ],
   imports: [
     BrowserModule,

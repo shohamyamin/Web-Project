@@ -7,6 +7,9 @@
   left: 0;
   right: 0;
 }
+.flex-spacer {
+  flex-grow: 1;
+}
 
 .example-is-mobile .example-toolbar {
   position: fixed;

@@ -1,8 +1,8 @@
 <div class="center">
   <form>
     <div class="container">
-      <h1>Login</h1>
-      <label for="uname"><b>Username:</b></label>
+      <h1>Register</h1>
+      <label for="uname"><b>Username</b></label>
       <input
         [(ngModel)]="user.username"
         type="text"
@@ -11,7 +11,7 @@
         required
       />
 
-      <label for="psw"><b>Password:</b></label>
+      <label for="psw"><b>Password</b></label>
       <input
         [(ngModel)]="user.password"
         type="password"
@@ -19,7 +19,15 @@
         name="psw"
         required
       />
-      <button type="button" (click)="login()">Login</button>
+      <label for="psw"><b>ReEnter Password</b></label>
+      <input
+        [(ngModel)]="validatePass"
+        type="password"
+        placeholder="Enter Password*"
+        name="psw"
+        required
+      />
+      <button type="button" (click)="register()">Register</button>
     </div>
 
     <div
@@ -28,10 +36,6 @@
       style="background-color: #f1f1f1"
     >
       <h1>{{ errorMessege }}</h1>
-    </div>
-
-    <div class="container">
-      <a herf="#" (click)="register()">Register</a>
     </div>
   </form>
 </div>

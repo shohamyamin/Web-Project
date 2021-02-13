@@ -29,4 +29,9 @@ export class AuthService {
       })
     );
   }
+  register(user: User) {
+    return this.http
+      .post(`${this.apiURL}/register`, user)
+      .pipe(tap((response) => {}));
+  }
 }

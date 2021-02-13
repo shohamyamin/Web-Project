@@ -1,16 +1,17 @@
-<div class="example-container">
+<div class="">
   <mat-toolbar color="primary" class="example-toolbar">
     <button mat-icon-button (click)="snav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
     <h1 class="example-app-name">Israel Corona Dashboard</h1>
-    <div style="margin-left: 75%">
+    <div class="flex-spacer"></div>
+    <div>
       <div *ngIf="authService.isAuthenticated">
         <span>Hello, {{ authService.username }}</span>
       </div>
       <div *ngIf="!authService.isAuthenticated">
         <button mat-button routerLink="isolation">
-          <mat-icon>login</mat-icon>&nbsp; login
+          <mat-icon>login</mat-icon>&nbsp; Login
         </button>
       </div>
       <div *ngIf="authService.isAuthenticated">
@@ -47,6 +48,11 @@
           ><mat-icon>home</mat-icon>&nbsp; Declare Isolation</a
         >
       </mat-nav-list>
+      <mat-nav-list>
+        <a mat-list-item routerLink="coronaInformation"
+          ><mat-icon>home</mat-icon>&nbsp; Corona Information</a
+        >
+      </mat-nav-list>
     </mat-sidenav>
 
     <mat-sidenav-content style="background-color: rgb(236, 240, 246)">
@@ -54,5 +60,3 @@
     </mat-sidenav-content>
   </mat-sidenav-container>
 </div>
-
-<>

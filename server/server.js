@@ -59,6 +59,26 @@ const config = require("./config");
       return res.sendStatus(500);
     }
   });
+  app.post("/register", async (req, res) => {
+    try {
+      const user = await User.findOne({ username: req.body.username });
+
+      if (user) {
+        return res.sendStatus(401);
+      }
+
+      const newUser = new User({
+        username: req.body.username,
+        password: req.body.password,
+      });
+      await newUser.save();
+
+      res.json({});
+    } catch (err) {
+      console.log("error" + err);
+      res.sendStatus(500);
+    }
+  });
 
   //post isolation form;
   app.post("/isolation", async (req, res) => {

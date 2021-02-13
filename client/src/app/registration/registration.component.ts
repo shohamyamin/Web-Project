@@ -6,37 +6,44 @@ import { User } from '../models/user';
 import { AuthService } from '../services/auth.service';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  selector: 'app-registration',
+  templateUrl: './registration.component.html',
+  styleUrls: ['./registration.component.css'],
 })
-export class LoginComponent implements OnInit {
+export class RegistrationComponent implements OnInit {
   user: User = {
     username: '',
     password: '',
   };
   errorMessege = '';
+
+  validatePass: string;
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {}
+
   register() {
-    this.router.navigateByUrl('registration');
-  }
-  login() {
     // check if the login fields are empty
-    if (this.user.username === '' || this.user.password === '') {
+    if (
+      this.user.username === '' ||
+      this.user.password === '' ||
+      this.validatePass == ''
+    ) {
       this.errorMessege = 'The fields are required';
+    } else if (this.validatePass != this.user.password) {
+      this.errorMessege = 'Passwords not match';
     } else {
       this.authService
-        .login(this.user)
+        .register(this.user)
         .pipe(
           tap((response) => {
+            this.errorMessege = '';
             // redirect to home screen;
-            this.router.navigateByUrl('/dashboard');
+            this.router.navigateByUrl('/login');
           }),
           catchError((err) => {
             // show error
-            this.errorMessege = 'UserName/Password incorrect';
+            this.errorMessege = 'somthing went worng';
             return NEVER;
           })
         )
