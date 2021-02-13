@@ -28,7 +28,9 @@ export class PositivePrecentageTestsGraphComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    window.dispatchEvent(new Event('resize'));
+  }
   onSelect(data): void {
     console.log('Item clicked', JSON.parse(JSON.stringify(data)));
   }

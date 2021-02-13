@@ -20,7 +20,7 @@ export class DashboardComponent implements OnInit {
   graphPrecentOfPositiveTests: { name: string; series: any[] }[];
   vaccinatedPerAgeGraphData: any = [];
   hardCountDataGraph: any;
-  view: any[] = [650, 350];
+  view: any[] = [600, 350];
   statusCoronaGraph: any[] = [];
   constructor(private getDataService: GetDataService) {}
 

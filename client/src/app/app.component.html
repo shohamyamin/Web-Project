@@ -5,24 +5,18 @@
     </button>
     <h1 class="example-app-name">Israel Corona Dashboard</h1>
     <div class="flex-spacer"></div>
-    <div>
-      <div *ngIf="authService.isAuthenticated">
-        <span>Hello, {{ authService.username }}</span>
-      </div>
-      <div *ngIf="!authService.isAuthenticated">
-        <button mat-button routerLink="isolation">
-          <mat-icon>login</mat-icon>&nbsp; Login
-        </button>
-      </div>
-      <div *ngIf="authService.isAuthenticated">
-        <button
-          mat-button
-          (click)="authService.logout()"
-          routerLink="dashboard"
-        >
-          <mat-icon>logout</mat-icon>&nbsp; logout
-        </button>
-      </div>
+    <div *ngIf="authService.isAuthenticated">
+      <span>Hello, {{ authService.username }}</span>
+    </div>
+    <div *ngIf="!authService.isAuthenticated">
+      <button mat-button routerLink="isolation">
+        <mat-icon>login</mat-icon>&nbsp; Login
+      </button>
+    </div>
+    <div *ngIf="authService.isAuthenticated">
+      <button mat-button (click)="authService.logout()" routerLink="dashboard">
+        <mat-icon>logout</mat-icon>&nbsp; logout
+      </button>
     </div>
   </mat-toolbar>
 

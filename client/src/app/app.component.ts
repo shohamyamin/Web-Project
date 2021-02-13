@@ -11,6 +11,7 @@ export class AppComponent {
   constructor(public authService: AuthService) {}
   title = 'client';
   components = [1, 2, 3];
+
   navToNewsPage() {}
   navToDashboard() {}
   openGoogleNews() {

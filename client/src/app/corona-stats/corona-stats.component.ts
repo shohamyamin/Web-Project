@@ -20,11 +20,12 @@ export class CoronaStatsComponent implements OnInit {
 
   ngOnInit(): void {
     this.view2 = [this.view[0] * 2, this.view[1]];
+    window.dispatchEvent(new Event('resize'));
   }
   onSelect(data): void {
     console.log('Item clicked', JSON.parse(JSON.stringify(data)));
   }
   onResize(event) {
-    this.view2 = [event.target.innerWidth / 1.35, 400];
+    this.view2 = [event.target.innerWidth / 1.35, this.view[1]];
   }
 }
